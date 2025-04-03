@@ -13,5 +13,7 @@ export default async function createUser(params: TCreateUserParam) {
     const newUser = await User.create(params);
     // Ở đay dùng phương thức create để cho phép tạo ra 1 collection ở trong data
     return newUser;
-  } catch (error) {}
+  } catch (error) {
+    console.error(error);
+  }
 }
