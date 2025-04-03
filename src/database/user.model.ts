@@ -1,5 +1,5 @@
 import { EUserRole, EUserStatus } from "@/types/enums";
-import mongoose, { Document, model, models, Schema } from "mongoose";
+import { Document, model, models, Schema } from "mongoose";
 
 // Trên này chỉ là khai báo dữ liệu để sử dụng cho đúng thôi.
 export interface IUser extends Document {
