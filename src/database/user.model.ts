@@ -6,12 +6,12 @@ export interface IUser extends Document {
   clerkId: string;
   name: string;
   username: string;
-  email_address: string;
+  email: string;
   avatar: string;
-  course: Schema.Types.ObjectId[];
+  courses: Schema.Types.ObjectId[];
   status: EUserStatus;
   role: EUserRole;
-  createAt: Date;
+  created_at: Date;
 }
 // Đây mới là tạo cấu trúc Schanme để cho monggo nó hiểu cấu trúc sẽ như thế nào.
 const useSchema = new Schema<IUser>({
@@ -26,7 +26,7 @@ const useSchema = new Schema<IUser>({
     unique: true,
     required: true,
   },
-  email_address: {
+  email: {
     type: String,
     unique: true,
     required: true,
@@ -34,7 +34,7 @@ const useSchema = new Schema<IUser>({
   avatar: {
     type: String,
   },
-  course: [
+  courses: [
     {
       type: Schema.Types.ObjectId,
       ref: "Course", // ref này là liên kết đến bảng khác.
@@ -50,7 +50,7 @@ const useSchema = new Schema<IUser>({
     enum: Object.values(EUserRole),
     default: EUserRole.USER,
   },
-  createAt: {
+  created_at: {
     type: Date,
     default: Date.now,
   },
