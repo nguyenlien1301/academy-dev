@@ -16,7 +16,7 @@ export async function POST(req: Request) {
     return new Response("Bad Request", { status: 400 });
   }
   //   Đang là json
-  const payload = req.json();
+  const payload = await req.json();
   //   convert nó thành stringify()
   const body = JSON.stringify(payload);
   //  nếu có WEBHOOK_SECRET thì chạy xuống đây
